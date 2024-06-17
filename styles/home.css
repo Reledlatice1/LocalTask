@@ -1,0 +1,37 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #FFE500;
+}
+
+
+.menu-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-nav p{
+    padding-left: 100px;
+}
+
+.boton-usuario{
+    display: flex;
+    align-items: center; /* Alinea verticalmente el contenido */
+}
+
+.boton-usuario a{
+    margin-right: 20px; /* Ajusta el valor según el espacio que necesites */
+}
+footer{
+    background-color: black;
+    color: white;
+}
+
+.contenido-footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+

@@ -1,0 +1,111 @@
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: url('/img/image.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.contenedor{
+    position: relative;
+    width: 400px;
+    border-radius: 5px;
+    background-color:  #B08A02;
+    backdrop-filter: blur(15px);
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor h2{
+    font-size: 2.3rem;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.input-contenedor{
+    position: relative;
+    margin: 3px 0;
+    width: 300px;
+    border-bottom: 2px solid #fff;
+}
+
+.input-contenedor label{
+    position: absolute;
+    top:50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: .6s;
+    font-weight: bold;
+}
+
+input:focus ~ label,
+input:valid ~ label{
+    top: -5;
+}
+
+.input-contenedor input{
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: - 35px 0 5px;
+    color: #fff;
+}
+
+.input-contenedor {
+    margin-bottom: 20px;
+}
+
+.contenedor-boton{
+    padding-top: 20px;
+}
+
+button{
+    width: 100%;
+    height: 45px;
+    border-radius: 40px;
+    background: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    font-size: 1rem;
+    transition: .4s;
+   
+}
+
+button:hover{
+    opacity: .9;
+}
+
+.registrar{
+    font-size: .8rem;
+    color: #fff;
+    text-align: center;
+    margin: 20px 0 10px;
+    margin-bottom: 50px;
+}
+
+.registrar p a{
+    text-decoration: none;
+    color: #0000FF;
+    font-weight: bold;
+    transform: .3s;
+}
+
+.registrar p a:hover{
+    text-decoration: underline;
+}
