@@ -1,0 +1,71 @@
+.background-card{
+    margin-bottom: 70px;
+    background-color: #F0F0F0;
+}
+
+.contenedor-editar input{
+    width: 25%;
+}
+
+.bloque-editar-1{
+    display: flex;
+    justify-content: center;
+}
+
+.bloque-editar-1 input{
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+.bloque-editar-2{
+    display: flex;
+    justify-content: center;
+}
+
+.bloque-editar-2 input{
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+.centro-boton{
+    display: flex;
+    justify-content: center;
+}
+
+.guardar{
+    background-color: #2EA7FF;
+    color: white;
+    width: 7%;
+}
+
+.guardar:hover{
+    background-color: #6ebcf3;
+    color: white;
+}
+
+.redes-editar{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.redes-editar input{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.contenedor-contraseña{
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-contraseña input{
+    width: 25%;
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+
+.centro-cerrar{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}

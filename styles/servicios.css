@@ -1,0 +1,25 @@
+.buscadores{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+}
+
+.buscadores input{
+    width: 35%;
+}
+
+.buscadores select{
+    width: 15%;
+}
+
+.servicios{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.servicios .card{
+    margin-top: 50px;
+    margin-left: 40px;
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
