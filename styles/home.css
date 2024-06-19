@@ -1,8 +1,18 @@
+
+
+body {
+    font-family: "Changa", sans-serif;
+}
+
 nav{
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 5px;
     background-color: #FFE500;
+}
+
+nav .logo{
+    margin-left: 40px;
 }
 
 
@@ -10,6 +20,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 8%;
 }
 
 .menu-nav a{
@@ -28,10 +39,11 @@ nav{
 .boton-usuario{
     display: flex;
     align-items: center; /* Alinea verticalmente el contenido */
+    margin-right: 40px;
 }
 
 .boton-usuario a{
-    margin-right: 20px; /* Ajusta el valor según el espacio que necesites */
+    margin-right: 30px; /* Ajusta el valor según el espacio que necesites */
 }
 footer{
     background-color: black;
