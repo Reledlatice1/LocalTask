@@ -1,0 +1,20 @@
+.tabla-servicios{
+    padding: 35px;
+}
+
+.tabla-servicios .gestion{
+    background-color: #579B00;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    margin: 0 15px ;
+}
+
+.tabla-servicios .eliminar{
+    background-color: #C60000;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
