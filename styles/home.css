@@ -45,12 +45,12 @@ nav .logo{
 .boton-usuario a{
     margin-right: 30px; /* Ajusta el valor según el espacio que necesites */
 }
-footer{
+footer {
     background-color: black;
     color: white;
 }
 
-.contenido-footer{
+.contenido-footer {
     display: flex;
     justify-content: space-between;
     padding: 2rem;

@@ -1,0 +1,124 @@
+/* Agrega este CSS para ajustar la sección de opiniones */
+.contenedor-filas-1{
+    display: flex;
+    padding: 40px;
+}
+
+.contenedor-filas-1 i{
+    padding-left: 50px;
+}
+
+.contenedor-filas-1 p{
+    padding-left: 20px;
+    font-size: 2rem;
+}
+
+.contenedor-parrafo{
+    padding: 20px 40px;
+}
+
+.botones{
+    display: flex;
+    justify-content: left;
+    padding: 0 40px;
+}
+
+.botones .solicitar{
+    background-color: #2EA7FF;
+    border:none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
+.botones .perfil{
+    background-color: #4189e65a;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    color: #3483FA;
+}
+
+.calificacion{
+    padding: 30px 40px ;
+}
+
+
+.rating {
+    direction: rtl;
+    display: inline-block;
+}
+
+.rating > input {
+    display: none;
+}
+
+.rating > label {
+    display: inline-block;
+    cursor: pointer;
+    width: 50px; /* Aumenta el tamaño de las estrellas */
+    height: 50px; /* Aumenta el tamaño de las estrellas */
+    background: url('/img/estrella.png') no-repeat center;
+    background-size: contain;
+}
+
+.rating > input:checked ~ label,
+.rating > label:hover,
+.rating > label:hover ~ label {
+    background: url('/img/estrella-amarrila.png') no-repeat center;
+    background-size: contain;
+}
+
+.comentarios{
+    padding: 10px 10px;
+}
+
+.comentarios textarea{
+    padding: 25px;
+    width: 75%;
+    background-color: #F1F1F1;
+    border-radius: 20px;
+    border: none;
+}
+
+.comentarios .boton-enviar{
+    margin-top: 30px;
+}
+
+.boton-enviar button{
+    background-color: #2EA7FF;
+    border:none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    color: #FFFF;
+}
+
+.Opiniones{
+    padding: 10px 10px;
+}
+
+.Opiniones .texto{
+    padding: 25px;
+    width: 75%; 
+    background-color: #F1F1F1;
+    border-radius: 20px;
+    border: none;
+}
+
+.Opiniones .rating {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.Opiniones .rating > input {
+    display: none;
+}
+.Opiniones .rating > label {
+    display: inline-block;
+    cursor: default;
+    width: 50px; /* Tamaño de las estrellas */
+    height: 50px; /* Tamaño de las estrellas */
+    background: url('/img/estrella-amarrila.png') no-repeat center;
+    background-size: contain;
+}
