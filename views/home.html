@@ -1,108 +1,109 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <title>LocalTask</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
 
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bitter:ital,wght@0,100..900;1,100..900&family=Changa:wght@200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<head>
+    <title>LocalTask</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-        <link rel="stylesheet" href="/styles/home.css">
-    </head>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bitter:ital,wght@0,100..900;1,100..900&family=Changa:wght@200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <body>
-        <header>
-            <!-- place navbar here -->
-            <nav>
-                <div class="logo">
-                    <img class="logo" src="/img/logo.png" width="60%">
+    <link rel="stylesheet" href="/styles/home.css">
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+        <nav class="nav-header">
+            <div class="logo">
+                <img class="logo" src="/img/logo.png" width="60%">
+            </div>
+
+            <div class="menu-nav">
+                <a href="/views/home.html" class="fs-5">Inicio</a>
+                <a href="/views/servicios.html" class="fs-5">Servicios</a>
+                <a href="/views/sobreNosotros.html" class="fs-5">Sobre nosotros</a>
+            </div>
+
+            <div class="boton-usuario">
+                <a class="btn btn-light" href="/views/TusServicios.html">Mis servicios</a>
+                <a class="btn btn-light" href="/views/infoServicios.html">Crear Servicio</a>
+                <a href="/views/editarPerfil.html"><i class="bi bi-person-circle" style="font-size: 55px;"></i></a>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="First slide"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <img src="/img/imagen1.jpg" class="w-100 d-block" alt="First slide"
+                        style="height: 720px; object-fit: cover;" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="fw-bold fs-1">Buscar Servicios Locales? Estas en el lugar correcto!!!</h3>
+                    </div>
                 </div>
-
-                <div class="menu-nav">
-                    <a href="/views/home.html" class="fs-5">Inicio</a>
-                    <a href="/views/servicios.html" class="fs-5">Servicios</a>
-                    <a href="/views/sobreNosotros.html" class="fs-5">Sobre nosotros</a>
+                <div class="carousel-item">
+                    <img src="/img/imagen2.jpg" class="w-100 d-block" alt="Second slide"
+                        style="height: 700px; object-fit: cover;" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="fw-bold fs-1">Descubre Nuestras grandes ofertas</h3>
+                    </div>
                 </div>
-
-                <div class="boton-usuario">
-                    <a class="btn btn-light" href="/views/TusServicios.html">Mis servicios</a>
-                    <a class="btn btn-light" href="/views/infoServicios.html">Crear Servicio</a>
-                    <a href="/views/editarPerfil.html"><i class="bi bi-person-circle" style="font-size: 55px;"></i></a>
+                <div class="carousel-item">
+                    <img src="/img/imagen3.jpg" class="w-100 d-block" alt="Third slide"
+                        style="height: 700px; object-fit: cover;" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="fw-bold fs-1">Encuentra tu servicio ideal</h3>
+                    </div>
                 </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+    </main>
+    <footer>
+        <div class="contenido-footer">
+            <nav class="nav-footer">
+                <a href="/views/Public/MapaSitio.html">Mapa de sitio</a>
+                <a href="/views/Public/Avisos.html">Avisos de privacidad</a>
+                <a href="/views/Public/Terminos.html">Terminos y condiciones</a>
             </nav>
-        </header>
-        <main>
+            <p> Ricardo, Nadia, Marco, Fransico, <br> Todos los derechos reservados &copy;</p>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
 
-            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
-                    <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-                    <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <img src="/img/imagen1.jpg" class="w-100 d-block" alt="First slide" style="height: 720px; object-fit: cover;" />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3 class="fw-bold fs-1">Buscar Servicios Locales? Estas en el lugar correcto!!!</h3>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/img/imagen2.jpg" class="w-100 d-block" alt="Second slide" style="height: 700px; object-fit: cover;" />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3 class="fw-bold fs-1">Descubre Nuestras grandes ofertas</h3>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/img/imagen3.jpg" class="w-100 d-block" alt="Third slide" style="height: 700px; object-fit: cover;" />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3 class="fw-bold fs-1">Encuentra tu servicio ideal</h3>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            
-            
-        </main>
-        <footer>
-            <div class="contenido-footer">
-                <p>Ricardo, Nadia, Marco, Fransico</p>
-                <p>Todos los derechos reservados &copy;</p>
-            </div>
-        </footer>
-        <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
-        
-    </body>
+</body>
+
 </html>
