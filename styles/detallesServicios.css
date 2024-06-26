@@ -106,19 +106,20 @@
     border: none;
 }
 
-.Opiniones .rating {
+.rating {
+    direction: rtl;
     display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 10px;
 }
-.Opiniones .rating > input {
+
+.rating > input {
     display: none;
 }
-.Opiniones .rating > label {
+
+.rating > label {
     display: inline-block;
-    cursor: default;
-    width: 50px; /* Tamaño de las estrellas */
-    height: 50px; /* Tamaño de las estrellas */
+    cursor: pointer;
+    width: 50px; /* Aumenta el tamaño de las estrellas */
+    height: 50px; /* Aumenta el tamaño de las estrellas */
     background: url('/img/estrella-amarrila.png') no-repeat center;
     background-size: contain;
 }
