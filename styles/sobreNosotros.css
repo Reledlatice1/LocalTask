@@ -1,7 +1,10 @@
-.columnas-info{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+@media (min-width:540px){
+    .columnas-info{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
+
 
 .columnas-info .info{
     margin-left: 40px;

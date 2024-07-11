@@ -10,10 +10,12 @@ body {
     padding: 5px;
     background-color: #FFE500;
 }
-
-.nav-header .logo{
-    margin-left: 40px;
+@media (min-width: 592px){
+    .nav-header .logo{
+        margin-left: 40px;
+    }
 }
+
 
 
 .menu-nav{
@@ -45,6 +47,71 @@ body {
 .boton-usuario a{
     margin-right: 30px; /* Ajusta el valor según el espacio que necesites */
 }
+
+/* Estilo para pantallas grandes (desktop) */
+@media (min-width: 992px) {
+    .nav-header {
+        flex-direction: row;
+    }
+
+    .menu-nav a {
+        padding-left: 100px;
+    }
+
+    .boton-usuario a {
+        margin-right: 30px;
+    }
+}
+
+/* Estilo para tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+    .nav-header {
+        flex-direction: row;
+    }
+
+    .menu-nav a {
+        padding-left: 50px;
+    }
+
+    .boton-usuario a {
+        margin-right: 20px;
+    }
+}
+
+/* Estilo para móviles */
+@media (max-width: 767px) {
+    .nav-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo img {
+        width: 80%;
+    }
+
+    .menu-nav {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .menu-nav a {
+        padding-left: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .boton-usuario {
+        flex-direction: column;
+        margin: 20px 0;
+    }
+
+    .boton-usuario a {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
 footer {
     background-color: black;
     color: white;
