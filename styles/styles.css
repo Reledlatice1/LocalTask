@@ -21,6 +21,19 @@ section{
     align-items: center;
 }
 
+.contenedor-2{
+    position: relative;
+    width: 400px;
+    border-radius: 5px;
+    background-color:  #B08A02;
+    backdrop-filter: blur(15px);
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .contenedor h2{
     font-size: 2.3rem;
     color: #fff;
@@ -30,6 +43,14 @@ section{
     margin-top: 40px;
 }
 
+.contenedor-2 h2{
+    font-size: 2.3rem;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
 .input-contenedor{
     position: relative;
     margin: 3px 0;
