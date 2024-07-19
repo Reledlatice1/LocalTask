@@ -14,6 +14,8 @@ if(isset($_POST['correo_electronico']) && isset($_POST['contraseña'])){
         $_SESSION['correo_electronico'] = $row['correo_electronico'];
         $_SESSION['contraseña'] = $row['contraseña'];
         $_SESSION['nombre'] = $row['nombre'];
+        $_SESSION['ap_paterno'] = $row['ap_paterno'];
+        $_SESSION['ap_materno'] = $row['ap_materno'];
         $_SESSION['telefono'] = $row['telefono'];
         $_SESSION['direccion'] = $row['direccion'];
         
