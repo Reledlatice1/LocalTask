@@ -16,7 +16,7 @@
             crossorigin="anonymous" />
 
         <!--CSS-->
-        <link rel="stylesheet" href="/styles/styles.css">
+        <link rel="stylesheet" href="./styles/styles.css">
     </head>
 
     <body>
@@ -25,21 +25,18 @@
             <section>
                 <div class="contenedor">
                     <div class="formulario">
-                        <form action>
+                        <form action="./connection/login.php" method="post">
                             <h2>Iniciar Sesion</h2>
 
                             <div class="input-contenedor">
                                 <input type="email" 
-                                    placeholder="Correo electronico">
+                                    placeholder="Correo electronico" name="correo_electronico">
                             </div>
                             <div class="input-contenedor">
-                                <input type="password" placeholder="Contraseña">
+                                <input type="password" placeholder="Contraseña" name="contraseña">
                             </div>
                             <div class="contenedor-boton">
-                                <a href="./views/home.html">
-                                    <button type="button">Iniciar Sesion</button>
-                                </a>
-
+                                    <button type="submit">Iniciar Sesion</button>
                             </div>
                         </form>
 
@@ -47,7 +44,7 @@
 
                             <div class="registrar">
                                 <p>No tengo cuenta <a
-                                        href="/views/registro.html">Crear una
+                                        href="./views/registro.html">Crear una
                                         nueva cuenta</a></p>
                             </div>
                         </div>
