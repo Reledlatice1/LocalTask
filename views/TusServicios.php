@@ -1,3 +1,30 @@
+<?php
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['id'])) {
+    header("Location: ../index.html");
+    exit();
+}
+
+include '../connection/conexion.php';
+
+// Recuperar el id del usuario desde la sesión
+$id_usuario = $_SESSION['id'];
+
+// Consulta para obtener los servicios del usuario autenticado
+$sql = "SELECT s.id_trabajo, s.nombre, s.descripcion, s.imagen, u.nombre as usuario 
+        FROM tb_trabajos s 
+        JOIN tb_usuarios u ON s.id_usuario = u.id_usuario 
+        WHERE s.id_usuario = ? 
+        ORDER BY s.id_trabajo DESC";
+
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param('i', $id_usuario);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -31,13 +58,13 @@
 
             <div class="menu-nav">
                 <a href="./home.html" class="fs-5">Inicio</a>
-                <a href="./servicios.html" class="fs-5">Servicios</a>
+                <a href="./servicios.php" class="fs-5">Servicios</a>
                 <a href="./sobreNosotros.html" class="fs-5">Sobre nosotros</a>
             </div>
 
             <div class="boton-usuario">
-                <a class="btn btn-light" href="./TusServicios.html">Mis servicios</a>
-                <a class="btn btn-light" href="./infoServicios.html">Crear Servicio</a>
+                <a class="btn btn-light" href="./TusServicios.php">Mis servicios</a>
+                <a class="btn btn-light" href="./infoServicios.php">Crear Servicio</a>
                 <a href="./editarPerfil.php"><i class="bi bi-person-circle" style="font-size: 55px;"></i></a>
             </div>
         </nav>
@@ -47,6 +74,7 @@
         <h1 class="text-center p-3 fw-bold">Tus servicios</h1>
 
         <div class="tabla-servicios">
+
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -56,66 +84,39 @@
                     </tr>
                 </thead>
                 <tbody>
+                <?php
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $id_trabajo = $row['id_trabajo'];
+                $nombre = $row['nombre'];
+                $descripcion = $row['descripcion'];
+                $imagen = "../functions/" . $row['imagen'];
+                $usuario = $row['usuario'];
+        ?>
                     <tr>
                         <td>
-                            <img src="../img/imagen4.jpg" width="200px" height="10%">
+                            <img src="<?php echo $imagen; ?>" width="200px" height="10%">
                         </td>
-                        <td>Limpieza</td>
+                        <td><?php echo $nombre; ?></td>
                         <td>
-                            <a href="../views/gestionarServicio.html">
+                            <a href="../views/gestionarServicio.php?id_trabajo=<?php echo $id_trabajo; ?>">
                                 <button class="gestion" type="button">Gestionar</button></a>
-                            <button class="eliminar">Eliminar</button>
+                                <a href="../functions/borrar_trabajo.php?id_trabajo=<?php echo $id_trabajo; ?>">
+                            <button class="eliminar">Eliminar</button></a>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>
-                            <img src="../img/imagen4.jpg" width="200px" height="10%">
-                        </td>
-                        <td>Limpieza</td>
-                        <td>
-                            <button class="gestion">Gestionar</button>
-                            <button class="eliminar">Eliminar</button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <img src="../img/imagen4.jpg" width="200px" height="10%">
-                        </td>
-                        <td>Limpieza</td>
-                        <td>
-                            <button class="gestion">Gestionar</button>
-                            <button class="eliminar">Eliminar</button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <img src="../img/imagen4.jpg" width="200px" height="10%">
-                        </td>
-                        <td>Limpieza</td>
-                        <td>
-                            <button class="gestion">Gestionar</button>
-                            <button class="eliminar">Eliminar</button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <img src="../img/imagen4.jpg" width="200px" height="10%">
-                        </td>
-                        <td>Limpieza</td>
-                        <td>
-                            <button class="gestion">Gestionar</button>
-                            <button class="eliminar">Eliminar</button>
-                        </td>
-                    </tr>
-
+                    <?php
+            }
+        } else {
+            echo "No hay servicios disponibles.";
+        }
+        $stmt->close();
+        $conexion->close();
+        ?>
                 </tbody>
             </table>
-        </div>
 
+        </div>
 
     </main>
     <footer>
@@ -125,7 +126,7 @@
                 <a href="./views/Public/Avisos.html">Avisos de privacidad</a>
                 <a href="./views/Public/Terminos.html">Terminos y condiciones</a>
             </nav>
-            <p> Ricardo, Nadia, Marco, Fransico, <br> Todos los derechos reservados &copy;</p>
+            <p> Ricardo, Nadia, Marco, Francisco, <br> Todos los derechos reservados &copy;</p>
         </div>
     </footer>
     <!-- Bootstrap JavaScript Libraries -->

@@ -48,8 +48,8 @@
 
         <section class="contenedor_formulario">
             <div class="service-form">
-                <img src="../img/imagen3.jpg" alt="Imagen de Limpieza">
-                <form>
+                <input type="file">
+                <form action="">
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre" value="Limpieza">
 

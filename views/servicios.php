@@ -1,3 +1,11 @@
+<?php 
+include '../connection/conexion.php';
+
+// Consulta para obtener todos los servicios
+$sql = "SELECT s.nombre, s.descripcion, s.imagen, u.nombre as usuario FROM tb_trabajos s JOIN tb_usuarios u ON s.id_usuario = u.id_usuario ORDER BY s.id_trabajo DESC";
+$result = $conexion->query($sql);
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -32,13 +40,13 @@
 
             <div class="menu-nav">
                 <a href="./home.html" class="fs-5">Inicio</a>
-                <a href="./servicios.html" class="fs-5">Servicios</a>
+                <a href="./servicios.php" class="fs-5">Servicios</a>
                 <a href="./sobreNosotros.html" class="fs-5">Sobre nosotros</a>
             </div>
 
             <div class="boton-usuario">
-                <a class="btn btn-light" href="./TusServicios.html">Mis servicios</a>
-                <a class="btn btn-light" href="./infoServicios.html">Crear Servicio</a>
+                <a class="btn btn-light" href="./TusServicios.php">Mis servicios</a>
+                <a class="btn btn-light" href="./infoServicios.php">Crear Servicio</a>
                 <a href="./editarPerfil.php"><i class="bi bi-person-circle" style="font-size: 55px;"></i></a>
             </div>
         </nav>
@@ -58,15 +66,31 @@
         </div>
 
         <section class="servicios">
-            <a href="detallesServicio.html">
-                <div class="card" style="width: 20rem;">
-                    <img src="../img/imagen4.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Limpieza</h5>
-                        <p class="card-text">Juan Ramirez Garcia</p>
-                    </div>
+ <?php
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $nombre = $row['nombre'];
+                $descripcion = $row['descripcion'];
+                $imagen = "../functions/" . $row['imagen'];
+                $usuario = $row['usuario'];
+        ?>
+        <a href="detallesServicio.html">
+            <div class="card" style="width: 20rem; margin-bottom: 20px;">
+                <img src="<?php echo $imagen; ?>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold"><?php echo $nombre; ?></h5>
+                    <p class="card-text"><?php echo $usuario; ?></p>
                 </div>
-            </a>
+            </div>
+        </a>
+        <?php
+            }
+        } else {
+            echo "No hay servicios disponibles.";
+        }
+        $conexion->close();
+        ?>
+<!--
             <div class="card" style="width: 20rem;">
                 <img src="../img/imagen5.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -124,7 +148,7 @@
                     <p class="card-text">Juan Ramirez Garcia</p>
                 </div>
             </div>
-
+-->
         </section>
     </main>
     <footer>
