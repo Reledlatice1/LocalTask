@@ -99,8 +99,8 @@ $result = $stmt->get_result();
                         </td>
                         <td><?php echo $nombre; ?></td>
                         <td>
-                            <a href="../views/gestionarServicio.php?id_trabajo=<?php echo $id_trabajo; ?>">
-                                <button class="gestion" type="button">Gestionar</button></a>
+                            <a href="../views/infoActualizar.php?id_trabajo=<?php echo $id_trabajo; ?>">
+                                <button class="gestion" type="button">Actualizar</button></a>
                                 <a href="../functions/borrar_trabajo.php?id_trabajo=<?php echo $id_trabajo; ?>">
                             <button class="eliminar">Eliminar</button></a>
                         </td>

@@ -2,9 +2,11 @@
 include '../connection/conexion.php';
 
 // Consulta para obtener todos los servicios
-$sql = "SELECT s.nombre, s.descripcion, s.imagen, u.nombre as usuario FROM tb_trabajos s JOIN tb_usuarios u ON s.id_usuario = u.id_usuario ORDER BY s.id_trabajo DESC";
+$sql = "SELECT s.id_trabajo, s.nombre, s.descripcion, s.imagen, u.nombre as usuario 
+        FROM tb_trabajos s 
+        JOIN tb_usuarios u ON s.id_usuario = u.id_usuario 
+        ORDER BY s.id_trabajo DESC";
 $result = $conexion->query($sql);
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -66,15 +68,16 @@ $result = $conexion->query($sql);
         </div>
 
         <section class="servicios">
- <?php
+        <?php
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
+                $id_trabajo = $row['id_trabajo'];
                 $nombre = $row['nombre'];
                 $descripcion = $row['descripcion'];
                 $imagen = "../functions/" . $row['imagen'];
                 $usuario = $row['usuario'];
         ?>
-        <a href="detallesServicio.html">
+        <a href="detallesServicio.php?id_trabajo=<?php echo $id_trabajo; ?>">
             <div class="card" style="width: 20rem; margin-bottom: 20px;">
                 <img src="<?php echo $imagen; ?>" class="card-img-top" alt="...">
                 <div class="card-body">
