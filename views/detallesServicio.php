@@ -46,16 +46,19 @@ $conexion->close();
 </head>
 
 <body>
-    <header>
+<header>
+        <!-- place navbar here -->
         <nav class="nav-header">
             <div class="logo">
                 <img class="logo" src="../img/logo.png" width="60%">
             </div>
+
             <div class="menu-nav">
                 <a href="./home.html" class="fs-5">Inicio</a>
                 <a href="./servicios.php" class="fs-5">Servicios</a>
                 <a href="./sobreNosotros.html" class="fs-5">Sobre nosotros</a>
             </div>
+
             <div class="boton-usuario">
                 <a class="btn btn-light" href="./TusServicios.php">Mis servicios</a>
                 <a class="btn btn-light" href="./infoServicios.php">Crear Servicio</a>
@@ -76,9 +79,7 @@ $conexion->close();
             </div>
             <div class="botones">
                 <button class="solicitar">Solicitar</button>
-                <a href="./perfildevendedor.html">
-                    <button class="perfil" type="button">Perfil del vendedor</button>
-                </a>
+              
             </div>
             <div class="calificacion">
                 <h3 class="" style="font-size: 2rem;">Como calificas este servicio</h3>

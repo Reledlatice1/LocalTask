@@ -1,4 +1,5 @@
 <?php
+print_r($_GET);
 include '../connection/conexion.php';
 
 $id_trabajo = $_GET['id_trabajo'];

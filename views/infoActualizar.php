@@ -1,3 +1,31 @@
+<?php
+include '../connection/conexion.php';
+
+// Obtener el ID del servicio desde la URL
+if (!isset($_GET['id_trabajo'])) {
+    echo "Servicio no encontrado.";
+    exit();
+}
+
+$id_trabajo = intval($_GET['id_trabajo']);
+
+// Consulta para obtener los detalles del servicio
+$query = "SELECT * FROM tb_trabajos WHERE id_trabajo = ?";
+$stmt = $conexion->prepare($query);
+$stmt->bind_param('i', $id_trabajo);
+$stmt->execute();
+$resultado = $stmt->get_result();
+
+if ($resultado->num_rows == 0) {
+    echo "Servicio no encontrado.";
+    exit();
+}
+
+$service = $resultado->fetch_assoc();
+$stmt->close();
+$conexion->close();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -23,7 +51,7 @@
 </head>
 
 <body>
-    <header>
+<header>
         <!-- place navbar here -->
         <nav class="nav-header">
             <div class="logo">
@@ -32,13 +60,13 @@
 
             <div class="menu-nav">
                 <a href="./home.html" class="fs-5">Inicio</a>
-                <a href="./servicios.html" class="fs-5">Servicios</a>
+                <a href="./servicios.php" class="fs-5">Servicios</a>
                 <a href="./sobreNosotros.html" class="fs-5">Sobre nosotros</a>
             </div>
 
             <div class="boton-usuario">
-                <a class="btn btn-light" href="./TusServicios.html">Mis servicios</a>
-                <a class="btn btn-light" href="./infoServicios.html">Crear Servicio</a>
+                <a class="btn btn-light" href="./TusServicios.php">Mis servicios</a>
+                <a class="btn btn-light" href="./infoServicios.php">Crear Servicio</a>
                 <a href="./editarPerfil.php"><i class="bi bi-person-circle" style="font-size: 55px;"></i></a>
             </div>
         </nav>
@@ -48,15 +76,19 @@
 
         <section class="contenedor_formulario">
             <div class="service-form">
-                <input type="file">
-                <form action="">
+                <img src="../functions/" alt="">
+                <form action="../functions/actualizar_trabajo.php" method="post" enctype="multipart/form-data">
                     <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" value="Limpieza">
-
+                    <input type="text" id="nombre" name="nombre" value="<?php echo htmlspecialchars($service['nombre']); ?>">
+        
                     <label for="descripcion">Descripción</label>
-                    <textarea id="descripcion"
-                        name="descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus vel elit in consequat. Sed id fringilla nisl, et tincidunt ipsum. Maecenas in leo vel sem ultricies efficitur vel et sapien. Cras quam urna, gravida et elementum ac, dictum vel sapien. Praesent maximus magna erat, non vulputate odio posuere id. Vivamus congue risus suscipit elit laoreet sagittis sed quis lectus. Vestibulum id tristique velit.</textarea>
-
+                    <textarea id="descripcion" name="descripcion"><?php echo htmlspecialchars($service['descripcion']); ?></textarea>
+                    
+                    <label for="imagen">Imagen</label>
+                    <input type="file" id="imagen" name="imagen" accept="image/*">
+        
+                    <input type="hidden" id="id_trabajo" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
+        
                     <button type="submit">Guardar</button>
                 </form>
             </div>

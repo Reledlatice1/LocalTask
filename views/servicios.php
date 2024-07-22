@@ -33,7 +33,7 @@ $result = $conexion->query($sql);
 </head>
 
 <body>
-    <header>
+<header>
         <!-- place navbar here -->
         <nav class="nav-header">
             <div class="logo">
@@ -57,7 +57,7 @@ $result = $conexion->query($sql);
         <h1 class="fs-1 text-center p-4 fw-bold">Todos los servicios</h1>
 
         <div class="buscadores">
-            <input class="form-control" input" placeholder="Buscar">
+        <input class="form-control me-2" type="search" name="search" placeholder="Buscar" aria-label="Buscar" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
 
             <select class="form-select" placeholder="Filtrar">
                 <option>Filtrar</option>

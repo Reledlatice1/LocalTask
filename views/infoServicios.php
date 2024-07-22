@@ -43,7 +43,7 @@ $direccion = $_SESSION['direccion'];
 </head>
 
 <body>
-    <header>
+<header>
         <!-- place navbar here -->
         <nav class="nav-header">
             <div class="logo">
@@ -57,8 +57,8 @@ $direccion = $_SESSION['direccion'];
             </div>
 
             <div class="boton-usuario">
-                <a class="btn btn-light" href="./TusServicios.html">Mis servicios</a>
-                <a class="btn btn-light" href="./infoServicios.html">Crear Servicio</a>
+                <a class="btn btn-light" href="./TusServicios.php">Mis servicios</a>
+                <a class="btn btn-light" href="./infoServicios.php">Crear Servicio</a>
                 <a href="./editarPerfil.php"><i class="bi bi-person-circle" style="font-size: 55px;"></i></a>
             </div>
         </nav>
@@ -68,7 +68,7 @@ $direccion = $_SESSION['direccion'];
 
         <section class="contenedor_formulario">
             <div class="service-form">
-                <img src="../img/imagen3.jpg" alt="Imagen de Limpieza">
+                <img src="" alt="">
                 <form action="../functions/agregar_trabajo.php" method="post" enctype="multipart/form-data">
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre" value="">

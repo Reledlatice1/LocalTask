@@ -50,13 +50,13 @@ $direccion = $_SESSION['direccion'];
 
             <div class="menu-nav">
                 <a href="./home.html" class="fs-5">Inicio</a>
-                <a href="./servicios.html" class="fs-5">Servicios</a>
+                <a href="./servicios.php" class="fs-5">Servicios</a>
                 <a href="./sobreNosotros.html" class="fs-5">Sobre nosotros</a>
             </div>
 
             <div class="boton-usuario">
-                <a class="btn btn-light" href="./TusServicios.html">Mis servicios</a>
-                <a class="btn btn-light" href="./infoServicios.html">Crear Servicio</a>
+                <a class="btn btn-light" href="./TusServicios.php">Mis servicios</a>
+                <a class="btn btn-light" href="./infoServicios.php">Crear Servicio</a>
                 <a href="./editarPerfil.php"><i class="bi bi-person-circle" style="font-size: 55px;"></i></a>
             </div>
         </nav>
