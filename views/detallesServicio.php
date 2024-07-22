@@ -26,6 +26,17 @@ if ($result->num_rows == 0) {
 
 $service = $result->fetch_assoc();
 $stmt->close();
+
+// Consulta para obtener los comentarios del servicio
+$comment_sql = "SELECT c.comentario, u.nombre as usuario 
+                FROM tb_comentarios c 
+                JOIN tb_usuarios u ON c.id_usuario = u.id_usuario 
+                WHERE c.id_trabajo = ?";
+$comment_stmt = $conexion->prepare($comment_sql);
+$comment_stmt->bind_param('i', $id_trabajo);
+$comment_stmt->execute();
+$comments = $comment_stmt->get_result();
+
 $conexion->close();
 ?>
 <!doctype html>
@@ -82,29 +93,32 @@ $conexion->close();
               
             </div>
             <div class="calificacion">
-                <h3 class="" style="font-size: 2rem;">Como calificas este servicio</h3>
-                <div class="rating">
-                    <input type="radio" name="star" id="star1"><label for="star1"></label>
-                    <input type="radio" name="star" id="star2"><label for="star2"></label>
-                    <input type="radio" name="star" id="star3"><label for="star3"></label>
-                    <input type="radio" name="star" id="star4"><label for="star4"></label>
-                    <input type="radio" name="star" id="star5"><label for="star5"></label>
-                </div>
-                <div class="comentarios">
-                    <form>
-                        <textarea></textarea>
-                        <div class="boton-enviar">
-                            <button type="button">Enviar</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="Opiniones">
-                    <h4 style="font-size: 2rem;" class="">Opiniones del servicio</h4>
-                    <!-- Agregar las opiniones aquí -->
-                </div>
+            <h3 class="" style="font-size: 2rem;">Deja comentarios del servicio</h3>
+            <div class="comentarios">
+                <form action="../functions/guardar_cometario.php" method="post">
+                    <textarea name="comentario" required></textarea>
+                    <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
+                    <div class="boton-enviar">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </form>
             </div>
-        </section>
-    </main>
+            <div class="Opiniones">
+                <h4 style="font-size: 2rem;" class="">Opiniones del servicio</h4>
+                <?php if ($comments->num_rows > 0): ?>
+                    <?php while($comment = $comments->fetch_assoc()): ?>
+                        <div class="opinion">
+                            <strong><?php echo htmlspecialchars($comment['usuario']); ?>:</strong>
+                            <p><?php echo htmlspecialchars($comment['comentario']); ?></p>
+                        </div>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <p>No hay comentarios aún.</p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+</main>
     <footer>
         <div class="contenido-footer">
             <nav class="nav-footer">
