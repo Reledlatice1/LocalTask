@@ -1,3 +1,23 @@
+<?php 
+session_start();
+
+
+if (!isset($_SESSION['id'])) {
+    header("Location: ../index.html");
+}
+
+
+include '../connection/conexion.php';
+$id_usuario = $_SESSION['id'];
+$nombre = $_SESSION['nombre'];
+$correo_electronico = $_SESSION['correo_electronico'];
+$telefono = $_SESSION['telefono'];
+$direccion = $_SESSION['direccion'];
+
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -16,28 +36,28 @@
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bitter:ital,wght@0,100..900;1,100..900&family=Changa:wght@200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/styles/home.css">
-    <link rel="stylesheet" href="/styles/editarPerfil.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="../styles/editarPerfil.css">
 </head>
 
 <body>
-    <header>
+<header>
         <!-- place navbar here -->
         <nav class="nav-header">
             <div class="logo">
-                <img class="logo" src="/img/logo.png" width="60%">
+                <img class="logo" src="../img/logo.png" width="60%">
             </div>
 
             <div class="menu-nav">
-                <a href="/views/home.html" class="fs-5">Inicio</a>
-                <a href="/views/servicios.html" class="fs-5">Servicios</a>
-                <a href="/views/sobreNosotros.html" class="fs-5">Sobre nosotros</a>
+                <a href="./home.html" class="fs-5">Inicio</a>
+                <a href="./servicios.php" class="fs-5">Servicios</a>
+                <a href="./sobreNosotros.html" class="fs-5">Sobre nosotros</a>
             </div>
 
             <div class="boton-usuario">
-                <a class="btn btn-light" href="/views/TusServicios.html">Mis servicios</a>
-                <a class="btn btn-light" href="/views/infoServicios.html">Crear Servicio</a>
-                <a href="/views/editarPerfil.html"><i class="bi bi-person-circle" style="font-size: 55px;"></i></a>
+                <a class="btn btn-light" href="./TusServicios.php">Mis servicios</a>
+                <a class="btn btn-light" href="./infoServicios.php">Crear Servicio</a>
+                <a href="./editarPerfil.php"><i class="bi bi-person-circle" style="font-size: 55px;"></i></a>
             </div>
         </nav>
     </header>
@@ -48,12 +68,12 @@
                 <p class="text-center fs-5">Datos personales</p>
                 <form class="contenedor-editar">
                     <div class="bloque-editar-1">
-                        <input class="form-control" type="text" placeholder="Nombre">
-                        <input class="form-control" type="email" placeholder="Correo Electronico">
+                        <input class="form-control" type="text" placeholder="Nombre" value="<?= $nombre ?>">
+                        <input class="form-control" type="email" placeholder="Correo Electronico" value="<?= $correo_electronico ?>">
                     </div>
                     <div class="bloque-editar-2">
-                        <input class="form-control" type="tel" placeholder="Telefono">
-                        <input class="form-control" type="text" placeholder="Direccion">
+                        <input class="form-control" type="tel" placeholder="Telefono" value="<?= $telefono?>">
+                        <input class="form-control" type="text" placeholder="Direccion" value="<?= $direccion ?>">
                     </div>
 
                     <div class="centro-boton">
@@ -88,7 +108,9 @@
 
                 <p class="text-center fs-5 p-3">Acciones</p>
                 <div class="centro-cerrar">
-                    <button type="button" class="btn btn-danger">Cerrar Sesion</button>
+                    <a href="../connection/logout.php">
+                        <button type="button" class="btn btn-danger">Cerrar Sesion</button>
+                    </a>
                 </div>
             </div>
         </section>

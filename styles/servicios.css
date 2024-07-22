@@ -5,17 +5,19 @@
 }
 
 .buscadores input{
-    width: 35%;
+    width: 45%;
 }
 
 .buscadores select{
     width: 15%;
 }
 
-.servicios{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
+
+    .servicios{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
 
 .servicios .card{
     margin-top: 10px;
