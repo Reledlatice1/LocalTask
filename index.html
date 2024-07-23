@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
+
     <head>
         <title>LocalTask</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
-        <meta
-            name="viewport"
+        <meta name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
         <!-- Bootstrap CSS v5.2.1 -->
@@ -14,54 +14,223 @@
             rel="stylesheet"
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bitter:ital,wght@0,100..900;1,100..900&family=Changa:wght@200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-        <!--CSS-->
-        <link rel="stylesheet" href="./styles/styles.css">
+        <link rel="stylesheet" href="./styles/home.css">
+        <link rel="stylesheet" href="./styles/portada.css">
     </head>
 
     <body>
+        <header>
+            <!-- place navbar here -->
+            <nav class="nav-header">
+                <div class="logo">
+                    <img class="logo" src="./img/logo.png" width="60%">
+                </div>
 
+                <div class="boton-usuario">
+                    <a href="./views/inicio.html"><button
+                            class="btn btn-light">Iniciar sesion</button></a>
+                </div>
+            </nav>
+        </header>
         <main>
-            <section>
-                <div class="contenedor">
-                    <div class="formulario">
-                        <form action="./connection/login.php" method="post">
-                            <h2>Iniciar Sesion</h2>
 
-                            <div class="input-contenedor">
-                                <input type="email" 
-                                    placeholder="Correo electronico" name="correo_electronico">
-                            </div>
-                            <div class="input-contenedor">
-                                <input type="password" placeholder="Contraseña" name="contraseña">
-                            </div>
-                            <div class="contenedor-boton">
-                                    <button type="submit">Iniciar Sesion</button>
-                            </div>
-                        </form>
-
-                        <div>
-
-                            <div class="registrar">
-                                <p>No tengo cuenta <a
-                                        href="./views/registro.html">Crear una
-                                        nueva cuenta</a></p>
-                            </div>
+            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselId" data-bs-slide-to="0"
+                        class="active" aria-current="true"
+                        aria-label="First slide"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="1"
+                        aria-label="Second slide"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="2"
+                        aria-label="Third slide"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img src="./img/imagen1.jpg" class="w-100 d-block"
+                            alt="First slide"
+                            style="height: 720px; object-fit: cover;" />
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="fw-bold fs-1">Buscar Servicios Locales?
+                                Estas en el lugar correcto!!!</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/imagen2.jpg" class="w-100 d-block"
+                            alt="Second slide"
+                            style="height: 700px; object-fit: cover;" />
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="fw-bold fs-1">Descubre Nuestras grandes
+                                ofertas</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/imagen3.jpg" class="w-100 d-block"
+                            alt="Third slide"
+                            style="height: 700px; object-fit: cover;" />
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="fw-bold fs-1">Encuentra tu servicio
+                                ideal</h3>
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
+                <button class="carousel-control-prev" type="button"
+                    data-bs-target="#carouselId" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"
+                        aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button"
+                    data-bs-target="#carouselId" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"
+                        aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
 
-        <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"></script>
+            <section class="sobre_nosotros_1">
+                <div class="container mt-5 pt-5">
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <img
+                                src="./img/imagen_representativa_1.jpg"
+                                class="img-fluid"
+                                alt="Imagen representativat" />
+                        </div>
+                        <div class="col-md-6">
+                            <h2>Que es <span
+                                    class="color_local">LocalTask</span>?</h2>
+                            <p>
+                                LocalTask es una aplicacion donde podras
+                                encontrar servicios locales de cualquier tipo
+                                100% confiables, existe una muy amplia
+                                categorias de servicios dentro de nuestra aplicacion
+                                <br>
+                                Nuestra idea surgió de las experiencias entre
+                                estudiantes
+                                universitarios y la de sus familiares, que a
+                                menudo y actualmente enfrentan
+                                dificultades para localizar proveedores de
+                                servicios como plomería, electricidad,
+                                limpieza, mecánica,etc. N
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <h2>¿Qué encontraras en <span
+                                    class="color_local">LocalTask</span>?</h2>
+                            <ul class="puntos">
+                                <li>
+                                    <b>Busqueda de servicios</b>: Busca y
+                                    encuentra el servicio que desees contratar
+                                    de una forma mas facil y sencilla, Tenemos
+                                    una muy amplia categoria de servicios ya
+                                    sean, limpieza, instalaciones, reparaciones,
+                                    etc
+                                </li>
+                                <li>
+                                    <b>Opinar y valorar servicio</b>: No confias
+                                    en algun servicio? revisa los comentarios
+                                    del servicio que estes deseando contratar
+                                    para ver las opiniones de las personas sobre
+                                    dicho servicio y si es recomendable
+                                    contratarlo
+                                </li>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"></script>
-    </body>
-</html>
+                                <li>
+                                    <b>Crea y ofrece tus servicios</b>: Quieres
+                                    ofrecer tus servicios? tienes la opcion de
+                                    crear y publicar tus servicio en nuestra
+                                    aplicacion para que las personas lo puedan
+                                    buscar y contratarlo
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <img
+                                src="./img/imagen_representativa_2.jpg"
+                                class="img-fluid"
+                                alt="Beneficios de EduConnect"
+                                />
+                        </div>
+                    </div>
+                </section>
+
+                <div class="fondo_contenedor">
+                    <h2 class="text-center p-4 fw-bold">Inetgrantes del
+                        equipo</h2>
+                    <p class="text-center">A continuacion les presentamos a
+                        nuestro
+                        equipo de trabajo que estuvo detras de todo el
+                        desarrollo de
+                        esta aplicacion web</p>
+                    <div class="contenedor_integtrantes">
+                        <div class="integrantes_equipo">
+                            <img src="./img/Ricardo.jpg" class="imagen_integrante">
+                            <p class="text-center p-3">Ricardo Beltran
+                                Cetina</p>
+                        </div>
+
+                        <div class="integrantes_equipo">
+                            <img src="./img/Marco.png" class="imagen_integrante">
+                            <p class="text-center p-3">Marco Daminan Garcia
+                                Velazques</p>
+                        </div>
+
+                        <div class="integrantes_equipo">
+                            <img src="./img/Nadia.png" class="imagen_integrante">
+                            <p class="text-center p-3">Nadia Alerth Ramirez
+                                Cortez</p>
+                        </div>
+
+                        <div class="integrantes_equipo">
+                            <img src="./img/Francisco.jpg" class="imagen_integrante">
+                            <p class="text-center p-3">Jose Francisco Castillo
+                                Pech</p>
+                        </div>
+
+                        <div class="integrantes_equipo">
+                            <img src="./img/Ramon.jpg" class="imagen_integrante">
+                            <p class="text-center p-3">Ramon</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+            <footer>
+                <div class="contenido-footer">
+                    <nav class="nav-footer">
+                        <a href="./views/Public/MapaSitio.html">Mapa de
+                            sitio</a>
+                        <a href="./views/Public/Avisos.html">Avisos de
+                            privacidad</a>
+                        <a href="./views/Public/Terminos.html">Terminos y
+                            condiciones</a>
+                    </nav>
+                    <p> Ricardo, Nadia, Marco, Fransico, Ramon <br> Todos los
+                        derechos reservados &copy;</p>
+                </div>
+            </footer>
+            <!-- Bootstrap JavaScript Libraries -->
+            <script
+                src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+                integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+                crossorigin="anonymous"></script>
+
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+                integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+                crossorigin="anonymous"></script>
+
+        </body>
+
+    </html>

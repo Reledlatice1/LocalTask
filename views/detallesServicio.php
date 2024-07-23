@@ -89,7 +89,7 @@ $conexion->close();
                 <p><?php echo htmlspecialchars($service['descripcion']); ?></p>
             </div>
             <div class="botones">
-                <button class="solicitar">Solicitar</button>
+               <!-- <button class="solicitar">Solicitar</button> -->
               
             </div>
             <div class="calificacion">

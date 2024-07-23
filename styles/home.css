@@ -1,51 +1,52 @@
-
-
 body {
     font-family: "Changa", sans-serif;
 }
 
-.nav-header{
+.nav-header {
     display: flex;
     justify-content: space-between;
     padding: 5px;
     background-color: #FFE500;
 }
-@media (min-width: 592px){
-    .nav-header .logo{
+
+@media (min-width: 592px) {
+    .nav-header .logo {
         margin-left: 40px;
     }
 }
 
 
 
-.menu-nav{
+.menu-nav {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 8%;
 }
 
-.menu-nav a{
+.menu-nav a {
     padding-left: 100px;
     text-decoration: none;
     color: black;
 }
 
-.menu-nav a:hover{
+.menu-nav a:hover {
     color: blue;
     text-decoration: underline;
     transition: .3s;
     cursor: pointer;
 }
 
-.boton-usuario{
+.boton-usuario {
     display: flex;
-    align-items: center; /* Alinea verticalmente el contenido */
+    align-items: center;
+    /* Alinea verticalmente el contenido */
     margin-right: 40px;
 }
 
-.boton-usuario a{
-    margin-right: 30px; /* Ajusta el valor según el espacio que necesites */
+.boton-usuario a {
+    margin-right: 30px;
+    /* Ajusta el valor según el espacio que necesites */
 }
 
 /* Estilo para pantallas grandes (desktop) */
@@ -123,21 +124,21 @@ footer {
     padding: 2rem;
 }
 
-.nav-footer a{
+.nav-footer a {
     text-decoration: none;
     color: white;
     margin-right: 30px;
-    
+
 }
 
-.nav-footer a:hover{
+.nav-footer a:hover {
     color: blue;
     text-decoration: underline;
     transition: 0.8s;
 
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
