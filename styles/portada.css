@@ -1,0 +1,49 @@
+.sobre_nosotros_1 .container{
+    margin-top: 80px;
+}
+
+.sobre_nosotros_1 h2{
+    font-weight: 700;
+}
+
+.sobre_nosotros_1 h2 .color_local{
+    color: yellow;
+}
+
+.sobre_nosotros_1 ul{
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.sobre_nosotros_1 ul li{
+    margin-bottom: 10px;
+}
+
+.sobre_nosotros_1 img{
+    margin-bottom: 20px;
+}
+.puntos{
+    margin-top: 40px;
+}
+
+
+.fondo_contenedor{
+    padding: 20px;
+}
+.imagen_integrante{
+    width: 15rem;
+}
+.contenedor_integtrantes{
+    padding: 5px;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+}
+.integrantes_equipo{
+    margin-left: 15px;
+    margin-top: 30px;
+    padding: 20px;
+    
+}
+

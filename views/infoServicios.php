@@ -94,7 +94,7 @@ $direccion = $_SESSION['direccion'];
                 <a href="/views/Public/Avisos.html">Avisos de privacidad</a>
                 <a href="/views/Public/Terminos.html">Terminos y condiciones</a>
             </nav>
-            <p> Ricardo, Nadia, Marco, Francisco, <br> Todos los derechos reservados &copy;</p>
+            <p> Ricardo, Nadia, Marco, Francisco, Ramon <br> Todos los derechos reservados &copy;</p>
         </div>
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
