@@ -66,14 +66,14 @@ $direccion = $_SESSION['direccion'];
             <div class="background-card">
                 <h1 class="text-center fw-bold p-3">Editar Perfil</h1>
                 <p class="text-center fs-5">Datos personales</p>
-                <form class="contenedor-editar">
+                <form class="contenedor-editar" action="../functions/update_cliente.php" method="post">
                     <div class="bloque-editar-1">
-                        <input class="form-control" type="text" placeholder="Nombre" value="<?= $nombre ?>">
-                        <input class="form-control" type="email" placeholder="Correo Electronico" value="<?= $correo_electronico ?>">
+                        <input class="form-control" type="text" placeholder="Nombre" value="<?= $nombre ?>" id="nombre" name="nombre">
+                        <input class="form-control" type="email" placeholder="Correo Electronico" value="<?= $correo_electronico ?>" id="correo_electronico" name="correo_electronico">
                     </div>
                     <div class="bloque-editar-2">
-                        <input class="form-control" type="tel" placeholder="Telefono" value="<?= $telefono?>">
-                        <input class="form-control" type="text" placeholder="Direccion" value="<?= $direccion ?>">
+                        <input class="form-control" type="tel" placeholder="Telefono" value="<?= $telefono?>" id="telefono" name="telefono">
+                        <input class="form-control" type="text" placeholder="Direccion" value="<?= $direccion ?>" id="direccion" name="direccion">
                     </div>
 
                     <div class="centro-boton">
@@ -95,10 +95,10 @@ $direccion = $_SESSION['direccion'];
                 </form>
 
                 <p class="text-center fs-5 p-3">Actualizar Contraseña</p>
-                <form>
+                <form  action="../functions/update_cliente.php" method="post">
                     <div class="contenedor-contraseña">
                         <input placeholder="Contraseña Anterior" class="form-control">
-                        <input placeholder="Contraseña Nueva" class="form-control">
+                        <input placeholder="Contraseña Nueva" class="form-control"  id="contraseña" name="contraseña" >
                     </div>
 
                     <div class="centro-boton">

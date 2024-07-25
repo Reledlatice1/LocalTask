@@ -1,5 +1,14 @@
 <?php
+session_start();
 include '../connection/conexion.php';
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['id'])) {
+    header("Location: ../index.html");
+    exit();
+}
+
+$id_usuario = $_SESSION['id'];
 
 // Obtener el ID del servicio desde la URL
 if (!isset($_GET['id_trabajo'])) {
@@ -28,7 +37,7 @@ $service = $result->fetch_assoc();
 $stmt->close();
 
 // Consulta para obtener los comentarios del servicio
-$comment_sql = "SELECT c.comentario, u.nombre as usuario 
+$comment_sql = "SELECT c.id_comentario, c.comentario, u.nombre as usuario, c.id_usuario 
                 FROM tb_comentarios c 
                 JOIN tb_usuarios u ON c.id_usuario = u.id_usuario 
                 WHERE c.id_trabajo = ?";
@@ -39,6 +48,7 @@ $comments = $comment_stmt->get_result();
 
 $conexion->close();
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -58,41 +68,40 @@ $conexion->close();
 
 <body>
 <header>
-        <!-- place navbar here -->
-        <nav class="nav-header">
-            <div class="logo">
-                <img class="logo" src="../img/logo.png" width="60%">
-            </div>
+    <!-- place navbar here -->
+    <nav class="nav-header">
+        <div class="logo">
+            <img class="logo" src="../img/logo.png" width="60%">
+        </div>
 
-            <div class="menu-nav">
-                <a href="./home.html" class="fs-5">Inicio</a>
-                <a href="./servicios.php" class="fs-5">Servicios</a>
-                <a href="./sobreNosotros.html" class="fs-5">Sobre nosotros</a>
-            </div>
+        <div class="menu-nav">
+            <a href="./home.html" class="fs-5">Inicio</a>
+            <a href="./servicios.php" class="fs-5">Servicios</a>
+            <a href="./sobreNosotros.html" class="fs-5">Sobre nosotros</a>
+        </div>
 
-            <div class="boton-usuario">
-                <a class="btn btn-light" href="./TusServicios.php">Mis servicios</a>
-                <a class="btn btn-light" href="./infoServicios.php">Crear Servicio</a>
-                <a href="./editarPerfil.php"><i class="bi bi-person-circle" style="font-size: 55px;"></i></a>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <div class="contenedor-filas-1">
-                <img src="../functions/<?php echo $service['imagen']; ?>" class="card-img-top" alt="..." style="width: 30%;">
-                <i class="bi bi-person-circle" style="font-size: 5rem;"></i>
-                <p><?php echo htmlspecialchars($service['usuario']); ?></p>
-            </div>
-            <div class="contenedor-parrafo">
-                <h3><?php echo htmlspecialchars($service['nombre']); ?></h3>
-                <p><?php echo htmlspecialchars($service['descripcion']); ?></p>
-            </div>
-            <div class="botones">
-               <!-- <button class="solicitar">Solicitar</button> -->
-              
-            </div>
-            <div class="calificacion">
+        <div class="boton-usuario">
+            <a class="btn btn-light" href="./TusServicios.php">Mis servicios</a>
+            <a class="btn btn-light" href="./infoServicios.php">Crear Servicio</a>
+            <a href="./editarPerfil.php"><i class="bi bi-person-circle" style="font-size: 55px;"></i></a>
+        </div>
+    </nav>
+</header>
+<main>
+    <section>
+        <div class="contenedor-filas-1">
+            <img src="../functions/<?php echo $service['imagen']; ?>" class="card-img-top" alt="..." style="width: 30%;">
+            <i class="bi bi-person-circle" style="font-size: 5rem;"></i>
+            <p><?php echo htmlspecialchars($service['usuario']); ?></p>
+        </div>
+        <div class="contenedor-parrafo">
+            <h3><?php echo htmlspecialchars($service['nombre']); ?></h3>
+            <p><?php echo htmlspecialchars($service['descripcion']); ?></p>
+        </div>
+        <div class="botones">
+            <!-- <button class="solicitar">Solicitar</button> -->
+        </div>
+        <div class="calificacion">
             <h3 class="" style="font-size: 2rem;">Deja comentarios del servicio</h3>
             <div class="comentarios">
                 <form action="../functions/guardar_cometario.php" method="post">
@@ -110,6 +119,18 @@ $conexion->close();
                         <div class="opinion">
                             <strong><?php echo htmlspecialchars($comment['usuario']); ?>:</strong>
                             <p><?php echo htmlspecialchars($comment['comentario']); ?></p>
+                            <?php if ($comment['id_usuario'] == $_SESSION['id']): // Verifica si el comentario pertenece al usuario ?>
+                                <form action="editar_comentario.php" method="get" style="display:inline;">
+                                    <input type="hidden" name="id_comentario" value="<?php echo $comment['id_comentario']; ?>">
+                                    <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
+                                    <button type="submit">Editar</button>
+                                </form>
+                                <form action="../functions/eliminar_comentario.php" method="post" style="display:inline;">
+                                    <input type="hidden" name="id_comentario" value="<?php echo $comment['id_comentario']; ?>">
+                                    <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
+                                    <button type="submit" onclick="return confirm('¿Seguro que quieres eliminar este comentario?')">Eliminar</button>
+                                </form>
+                            <?php endif; ?>
                         </div>
                     <?php endwhile; ?>
                 <?php else: ?>
@@ -119,17 +140,17 @@ $conexion->close();
         </div>
     </section>
 </main>
-    <footer>
-        <div class="contenido-footer">
-            <nav class="nav-footer">
-                <a href="/views/Public/MapaSitio.html">Mapa de sitio</a>
-                <a href="/views/Public/Avisos.html">Avisos de privacidad</a>
-                <a href="/views/Public/Terminos.html">Terminos y condiciones</a>
-            </nav>
-            <p> Ricardo, Nadia, Marco, Francisco, Ramon <br> Todos los derechos reservados &copy;</p>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<footer>
+    <div class="contenido-footer">
+        <nav class="nav-footer">
+            <a href="/views/Public/MapaSitio.html">Mapa de sitio</a>
+            <a href="/views/Public/Avisos.html">Avisos de privacidad</a>
+            <a href="/views/Public/Terminos.html">Terminos y condiciones</a>
+        </nav>
+        <p> Ricardo, Nadia, Marco, Francisco, Ramon <br> Todos los derechos reservados &copy;</p>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
 </html>
