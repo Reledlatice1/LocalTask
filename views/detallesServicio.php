@@ -48,7 +48,6 @@ $comments = $comment_stmt->get_result();
 
 $conexion->close();
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -68,7 +67,6 @@ $conexion->close();
 
 <body>
 <header>
-    <!-- place navbar here -->
     <nav class="nav-header">
         <div class="logo">
             <img class="logo" src="../img/logo.png" width="60%">
@@ -102,7 +100,7 @@ $conexion->close();
             <!-- <button class="solicitar">Solicitar</button> -->
         </div>
         <div class="calificacion">
-            <h3 class="" style="font-size: 2rem;">Deja comentarios del servicio</h3>
+            <h3 style="font-size: 2rem;">Deja comentarios del servicio</h3>
             <div class="comentarios">
                 <form action="../functions/guardar_cometario.php" method="post">
                     <textarea name="comentario" required></textarea>
@@ -113,22 +111,22 @@ $conexion->close();
                 </form>
             </div>
             <div class="Opiniones">
-                <h4 style="font-size: 2rem;" class="">Opiniones del servicio</h4>
+                <h4 style="font-size: 2rem;">Opiniones del servicio</h4>
                 <?php if ($comments->num_rows > 0): ?>
                     <?php while($comment = $comments->fetch_assoc()): ?>
                         <div class="opinion">
                             <strong><?php echo htmlspecialchars($comment['usuario']); ?>:</strong>
                             <p><?php echo htmlspecialchars($comment['comentario']); ?></p>
-                            <?php if ($comment['id_usuario'] == $_SESSION['id']): // Verifica si el comentario pertenece al usuario ?>
-                                <form action="editar_comentario.php" method="get" style="display:inline;">
-                                    <input type="hidden" name="id_comentario" value="<?php echo $comment['id_comentario']; ?>">
-                                    <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
-                                    <button type="submit">Editar</button>
-                                </form>
+                            <?php if ($comment['id_usuario'] == $_SESSION['id']): ?>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editCommentModal" 
+                                        data-id_comentario="<?php echo $comment['id_comentario']; ?>" 
+                                        data-comentario="<?php echo htmlspecialchars($comment['comentario']); ?>">
+                                    Editar
+                                </button>
                                 <form action="../functions/eliminar_comentario.php" method="post" style="display:inline;">
                                     <input type="hidden" name="id_comentario" value="<?php echo $comment['id_comentario']; ?>">
                                     <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
-                                    <button type="submit" onclick="return confirm('¿Seguro que quieres eliminar este comentario?')">Eliminar</button>
+                                    <button class="btn btn-danger" type="submit" onclick="return confirm('¿Seguro que quieres eliminar este comentario?')">Eliminar</button>
                                 </form>
                             <?php endif; ?>
                         </div>
@@ -140,6 +138,29 @@ $conexion->close();
         </div>
     </section>
 </main>
+
+<!-- Modal de Edición de Comentarios -->
+<div class="modal fade" id="editCommentModal" tabindex="-1" aria-labelledby="editCommentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content comentarios">
+            <form action="../functions/actualizar_comentario.php" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editCommentModalLabel">Editar Comentario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <textarea class="" name="comentario" id="editCommentText" required></textarea>
+                    <input type="hidden" name="id_comentario" id="editCommentId">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <footer>
     <div class="contenido-footer">
         <nav class="nav-footer">
@@ -150,7 +171,22 @@ $conexion->close();
         <p> Ricardo, Nadia, Marco, Francisco, Ramon <br> Todos los derechos reservados &copy;</p>
     </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+<script>
+    var editCommentModal = document.getElementById('editCommentModal');
+    editCommentModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var comment = button.getAttribute('data-comentario');
+        var id_comentario = button.getAttribute('data-id_comentario');
+
+        var modalTitle = editCommentModal.querySelector('.modal-title');
+        var modalBodyInput = editCommentModal.querySelector('.modal-body textarea');
+
+        modalBodyInput.value = comment;
+        document.getElementById('editCommentId').value = id_comentario;
+    });
+</script>
 </body>
 </html>
